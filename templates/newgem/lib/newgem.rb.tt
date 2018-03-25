@@ -1,7 +1,5 @@
-require "<%=config[:namespaced_path]%>/version"
-require "ruboty/handlers/<%= config[:name].gsub(/^ruboty-/, '') %>"
 <%- if config[:ext] -%>
-require "<%=config[:namespaced_path]%>/<%=config[:underscored_name]%>"
+require '<%=config[:namespaced_path]%>/<%=config[:underscored_name]%>'
 <%- end -%>
 
 <%- config[:constant_array].each_with_index do |c,i| -%>
@@ -11,3 +9,7 @@ require "<%=config[:namespaced_path]%>/<%=config[:underscored_name]%>"
 <%- (config[:constant_array].size-1).downto(0) do |i| -%>
 <%= '  '*i %>end
 <%- end -%>
+
+Dir[File.expand_path('<%= config[:name].gsub(/^ruboty-/, '') %>', __dir__) << '/**/*.rb'].each { |file| require file }
+Dir[File.expand_path('handlers', __dir__) << '/**/*.rb'].each { |file| require file }
+
