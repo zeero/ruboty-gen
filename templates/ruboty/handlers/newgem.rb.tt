@@ -1,8 +1,4 @@
-<%- if config[:actions] -%>
-  <%- config[:actions].each do |action| -%>
-require "ruboty/<%= config[:name].gsub(/^ruboty-/, '') %>/actions/<%= action %>"
-  <%- end -%>
-<%- end -%>
+require '<%= config[:name].gsub(/^ruboty-/, 'ruboty/') %>'
 
 module Ruboty
   module Handlers
