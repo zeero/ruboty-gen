@@ -1,5 +1,3 @@
-require '<%= config[:name].gsub(/^ruboty-/, 'ruboty/') %>'
-
 module Ruboty
   module <%= config[:ruboty_plugin_constant_name] %>
     module Actions
